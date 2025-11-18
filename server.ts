@@ -21,7 +21,7 @@ if (typeof mountRouters === "function") {
 }
 
 // Serve o build do frontend. Ajuste 'client/build' se o build for gerado em outro lugar.
-const clientBuildPath = path.join(__dirname, "client", "build"); // dist/server.js fica em /dist, por isso usamos __dirname
+const clientBuildPath = path.join(__dirname, "build"); // dist/server.js fica em /dist, por isso usamos __dirname
 app.use(express.static(clientBuildPath));
 app.get("*", (_, res) => {
   res.sendFile(path.join(clientBuildPath, "index.html"));
