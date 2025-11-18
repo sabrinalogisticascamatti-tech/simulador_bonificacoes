@@ -1,7 +1,7 @@
 FROM node:18-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 COPY . .
 RUN npm run build
 
@@ -10,6 +10,6 @@ WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/dist ./dist
-RUN npm ci --only=production
+RUN npm install --only=production
 EXPOSE 3000
 CMD ["node","dist/server.js"]
