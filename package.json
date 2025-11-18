@@ -1,26 +1,26 @@
 {
-  "name": "minha-app-manus",
+  "name": "simulador_bonificacoes",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build:client": "cd . && npm ci && npm run build",
+    "build:client": "cd project_source && npm install && npm run build",
     "build:server": "tsc -p tsconfig.server.json",
     "build": "npm run build:client && npm run build:server",
     "start": "node dist/server.js",
-    "dev": "concurrently \"cd client && npm run dev\" \"ts-node-dev --respawn --transpile-only server.ts\""
-  },
-  "engines": {
-    "node": "18.x"
+    "dev": "concurrently \"cd project_source && npm run dev\" \"ts-node-dev --respawn --transpile-only server.ts\""
   },
   "dependencies": {
+    "express": "^4.18.2",
     "cors": "^2.8.5",
     "drizzle-orm": "^1.0.0",
-    "express": "^4.18.2",
     "mysql2": "^3.3.0"
   },
   "devDependencies": {
-    "concurrently": "^7.6.0",
+    "typescript": "^5.0.0",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.2.0"
+    "concurrently": "^7.0.0"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
